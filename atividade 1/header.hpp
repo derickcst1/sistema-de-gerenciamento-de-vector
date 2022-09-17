@@ -103,6 +103,7 @@ bool match_substring(string &word, string &substring, size_t i, size_t j)
     else
     {
         i++;
+        j = 0;
         if (i >= word.size())
         {
             return false;
@@ -122,8 +123,8 @@ void search_substring(vector<string> &dictionary)
     cout << "-------------------------" << endl;
 
     cin >> search;
-    size_t i;
-    for (i = 0; i < dictionary.size(); i++)
+
+    for (size_t i = 0; i < dictionary.size(); i++)
     {
         if (match_substring(dictionary.at(i), search, 0, 0) == true)
         {
@@ -158,8 +159,8 @@ void remove_string_by_substring(vector<string> &dictionary)
         if (match_substring(dictionary.at(i), search, 0, 0) == true)
         {
             dictionary.erase(dictionary.begin() + i);
-            i--;
-        }
+        }else{
         i++;
+        }
     }
 }
